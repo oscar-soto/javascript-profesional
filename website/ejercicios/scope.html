@@ -11,5 +11,49 @@
   <a href="/ejercicios">Go back</a>
 
   <p>Abre la consola</p>
+
+  <script>
+    // Global Scope
+    var message = "Hello Platzi"
+
+    // Function Scope
+    // function printNumbers() {
+    //   for(var i = 0; i < 10; i++) {
+    //     setTimeout(function() {
+    //       console.log(i)
+    //     }, 100)
+    //   }
+    // }
+    //*** Solucion sin let ***//
+    function printNumbers() {
+      for(var i = 0; i < 10; i++) {
+
+        function eventuallyPrintNumber(n) {
+          setTimeout(function() {
+            console.log(n)
+          }, 100)
+        }
+
+        eventuallyPrintNumber(i)
+      }
+    }
+
+    printNumbers();
+
+    // BlockScope
+    function printNumbers2() {
+      for(let i = 0; i < 10; i++) {
+        setTimeout(function() {
+          console.log(i)
+        }, 100)
+      }
+    }
+
+    printNumbers2();
+    // Module Scope
+    
+
+  </script>
+
 </body>
 </html>
