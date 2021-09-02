@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>prototype</title>
+  </head>
+
+  <body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+      function Hero(name) {
+        this.name = name;
+      }
+
+      Hero.prototype.saludar = function () {
+        console.log(`Hola, soy ${this.name}`);
+      };
+
+      const zelda = new Hero("Zelda");
+
+      // Propiedades de la instancia
+      console.log("Name:", zelda.name);
+
+      // Propiedades de la "Clase"
+      console.log("Saludar:", zelda.saludar);
+
+      // Propiedades heredadas eje: toString
+      console.log("toString:", zelda.toString);
+
+      // HasOwnProperty (de donde sale toString o esto?)
+      console.log("zelda.hasOwnProperty('name'):", zelda.hasOwnProperty('name'));
+
+      // Inspeccionemos el prototipo del Zelda
+
+      // Inspeccionemos el prototipo del HEro
+
+      // Inspeccionemos el prototipo del Pbject
+    </script>
+  </body>
+</html>
