@@ -1,3 +1,4 @@
+/* 
 function MediaPlayer(config) {
   this.media = config.el;
   this.plugins = config.plugins || [];
@@ -46,6 +47,30 @@ MediaPlayer.prototype.mute = function () {
 
 MediaPlayer.prototype.unmute = function () {
   this.media.muted = false;
+}
+*/
+class MediaPlayer {
+  constructor({
+    element
+  }) {
+    this.media = element
+  }
+
+  play() {
+    this.media.play()
+  }
+
+  pause() {
+    this.media.pause()
+  }
+
+  togglePlay() {
+    if(this.media.paused) {
+      this.play()
+    } else {
+      this.pause()
+    }
+  }
 }
 
 export default MediaPlayer;
