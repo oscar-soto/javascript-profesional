@@ -51,9 +51,19 @@ MediaPlayer.prototype.unmute = function () {
 */
 class MediaPlayer {
   constructor({
-    element
+    element,
+    plugins = []
   }) {
-    this.media = element
+    this.media = element;
+    this.plugins = plugins;
+    
+    this._initPlugins();
+  }
+
+  _initPlugins() {
+    this.plugins.forEach(plugin => {
+      plugin.run(this);
+    });
   }
 
   play() {
@@ -70,6 +80,14 @@ class MediaPlayer {
     } else {
       this.pause()
     }
+  }
+
+  mute() {
+    this.media.muted = true;
+  }
+
+  unmute() {
+    this.media.muted = false;
   }
 }
 
