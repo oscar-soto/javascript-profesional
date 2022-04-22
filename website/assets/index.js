@@ -10,7 +10,6 @@ const player = new MediaPlayer({
 });
 
 const playButton = document.querySelector("#playButton");
-console.log(player)
 playButton.onclick = () => player.togglePlay();
 
 const muteButton = document.querySelector('#muteButton')

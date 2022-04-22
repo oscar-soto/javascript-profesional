@@ -56,13 +56,28 @@ class MediaPlayer {
   }) {
     this.media = element;
     this.plugins = plugins;
-    
     this._initPlugins();
   }
 
   _initPlugins() {
+    const media = this.media;
+    const player = {
+      play: () => media.play(),
+      pause: () => media.pause(),
+
+      get paused() {
+        return media.paused;
+      },
+      get muted() {
+        return media.muted;
+      },
+      set muted(state) {
+        media.muted = state;
+      }
+    }
+
     this.plugins.forEach(plugin => {
-      plugin.run(this);
+      plugin.run(player);
     });
   }
 
