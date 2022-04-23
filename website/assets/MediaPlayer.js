@@ -60,19 +60,19 @@ class MediaPlayer {
   }
 
   _initPlugins() {
-    const media = this.media;
     const player = {
-      play: () => media.play(),
-      pause: () => media.pause(),
+      play: () => this.media.play(),
+      pause: () => this.media.pause(),
+      media: this.media,
 
       get paused() {
-        return media.paused;
+        return this.media.paused;
       },
       get muted() {
-        return media.muted;
+        return this.media.muted;
       },
       set muted(state) {
-        media.muted = state;
+        this.media.muted = state;
       }
     }
 
