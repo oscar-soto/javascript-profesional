@@ -3,9 +3,12 @@ class MediaPlayer {
   plugins: Array<any>;
   container: HTMLElement;
 
-  constructor(config) {
-    this.media = config.el;
-    this.plugins = config.plugins || [];
+  constructor({
+    element,
+    plugins = []
+  }) {
+    this.media = element;
+    this.plugins = plugins;
     this.initPlayer();
     this.initPlugins();
   }
